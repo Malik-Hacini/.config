@@ -42,11 +42,15 @@ return {
         [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
         [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
         ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+        ['$'] = { action = 'closeopen', pair = '$$', neigh_pattern = '[^\\].' },
+        ["'"] = false, 
+
+
       },
     })
 
     -- Add custom quote handling
-    for _, char in ipairs({ '"', "'", '`' }) do
+    for _, char in ipairs({ '"',  '`' }) do
       vim.keymap.set('i', char, function()
         local col = vim.api.nvim_win_get_cursor(0)[2]
         local line = vim.api.nvim_get_current_line()

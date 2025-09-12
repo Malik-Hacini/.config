@@ -30,7 +30,7 @@ M.preset = {
 
 M.sections = {
   { section = 'header' },
-  { section = "keys", gap = 0, padding = 1 },
+  { section = "keys", gap = 0, padding = 0},
   { section = 'startup' },
 }
 

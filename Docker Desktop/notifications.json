@@ -1,0 +1,74 @@
+{
+	"notifications": [
+		{
+			"guid": "b94bcdbc-bc80-47db-8315-32c31bcfe68a",
+			"timestamp": 1744921551999,
+			"read": true,
+			"displayState": "background",
+			"notification": {
+				"message": "You must initialize pass before logging in to Docker Desktop",
+				"icon": "error",
+				"type": "action-result",
+				"operation": "user-log-in",
+				"title": "Unable to log in",
+				"actionText": "Learn how",
+				"action": {
+					"action": "open-credential-store-instructions",
+					"params": {}
+				}
+			}
+		},
+		{
+			"guid": "57d08300-cd15-4a20-9cc9-554c3f281d14",
+			"timestamp": 1744986604686,
+			"read": true,
+			"displayState": "background",
+			"notification": {
+				"message": "How was your startup experience with Docker Desktop?",
+				"icon": "campaign",
+				"type": "feedback",
+				"actionText": "Give feedback",
+				"action": {
+					"action": "show-survey-dialog",
+					"params": {
+						"type": "startupComplete"
+					}
+				}
+			}
+		},
+		{
+			"guid": "839f5388-4c13-4269-aedf-7a68a63983e3",
+			"timestamp": 1747060631409,
+			"read": false,
+			"displayState": "background",
+			"notification": {
+				"ephemeral": false,
+				"icon": "download",
+				"message": "Docker Desktop 4.41.2 is available.",
+				"actionText": "Download",
+				"action": {
+					"action": "update-available"
+				},
+				"type": "update"
+			}
+		},
+		{
+			"guid": "3baa51fb-3303-4b59-98c2-26cd62f9e374",
+			"timestamp": 1747375117919,
+			"read": false,
+			"displayState": "background",
+			"notification": {
+				"message": "Sign in to share images and collaborate with your team",
+				"icon": "disconnected",
+				"type": "action-result",
+				"operation": "user-log-in",
+				"actionText": "Sign in",
+				"action": {
+					"action": "open-login",
+					"params": {}
+				},
+				"title": "You are signed out"
+			}
+		}
+	]
+}

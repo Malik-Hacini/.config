@@ -1,3 +1,4 @@
+-- filepath: /home/tag/.config/nvim/lua/neotex/plugins/ui/lualine.lua
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -5,9 +6,9 @@ return {
     require('lualine').setup({
       options = {
         icons_enabled = true,
-        theme = 'gruvbox',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        theme = 'catppuccin',
+        component_separators = { left = '|', right = '|' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {
             "Avante",

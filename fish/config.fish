@@ -11,12 +11,20 @@ bind --erase --all \ct
 
 fish_config prompt choose scales
 
-# set -x TERM tmux-256color
+# Customize the prompt to use ->
+function fish_prompt
+    set -l last_status $status
+    
+    # Print the current directory
+    set_color normal
+    echo -n (prompt_pwd) 
+    set_color normal
+    
+    # Print -> as prompt character
+    echo -n " ➜ "
+end
 
-# # modify the prompt
-# function fish_prompt
-#     string join '' -- $PWD '>'
-# end
+# set -x TERM tmux-256color
 
 # runs zoxide if installed
 if type -q zoxide
@@ -25,5 +33,5 @@ end
 
 # runs neofetch if installed
 if type -q neofetch
-neofetch
+    neofetch --config /home/tag/.config/neofetch/config.conf
 end

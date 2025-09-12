@@ -86,7 +86,7 @@ local function setup_lazy()
         { import = "neotex.plugins.lsp" }, -- lsp plugins directory
       }, {
         install = {
-          colorscheme = { "gruvbox" },
+          colorscheme = { "catppuccin" },
         },
         checker = {
           enabled = true,
@@ -123,12 +123,12 @@ local function setup_lazy()
         { import = "neotex.plugins.tools" },   -- tool integration plugins
         { import = "neotex.plugins.text" },    -- text format-specific plugins
         { import = "neotex.plugins.ui" },      -- UI enhancement plugins
-        
-        -- Phase 4 imports
-        { import = "neotex.plugins.ai" },      -- AI tooling plugins
+
+        -- { import = "neotex.plugins.LuaSnip"},
+        { import = "neotex.plugins.typst"},
       }, {
         install = {
-          colorscheme = { "gruvbox" },
+          colorscheme = { "catppuccin" },
         },
         checker = {
           enabled = true,

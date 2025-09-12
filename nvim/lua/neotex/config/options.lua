@@ -35,8 +35,9 @@ function M.setup()
     conceallevel = 0,               -- so that `` is visible in markdown files
     number = true,                  -- set numbered lines
     relativenumber = true,          -- set relative numbered lines
-    numberwidth = 2,                -- set number column width to 2 {default 4}
-    signcolumn = "yes",             -- always show the sign column, otherwise it would shift the text each time
+    numberwidth = 1,                -- set number column width to minimum (1)
+    signcolumn = "auto:1",          -- reduce sign column width to minimum (1 char wide)
+    foldcolumn = "0",               -- disable fold column to save space
     fillchars = "eob: ",            -- don't show tildes
     cursorline = true,              -- highlight the current line
     -- colorcolumn = "100",             -- highlight vertical colorcolumn (moved to after/python.lua)
@@ -165,6 +166,23 @@ function M.setup()
   -- Limit jumplist to improve performance
   vim.opt.jumpoptions = "stack"
   vim.opt.shada = "!,'100,<50,s10,h"
+  
+  -- Make UI more adaptive to window size
+  vim.opt.winwidth = 1
+  vim.opt.winminwidth = 1
+  vim.opt.equalalways = true
+  
+  -- Add responsive dashboard size setting
+  vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+      -- Adjust dashboard size based on window width
+      local width = vim.api.nvim_win_get_width(0)
+      if width < 100 then
+        vim.g.dashboard_compact = true
+      end
+    end,
+    once = true
+  })
   
   return true
 end

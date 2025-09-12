@@ -75,10 +75,10 @@ return {
       lint.linters_by_ft.markdown = { "markdownlint" }
     end
     
-    -- LaTeX
-    if is_executable("chktex") then
-      lint.linters_by_ft.tex = { "chktex" }
-    end
+    -- LaTeX - Disabled grammar checking for LaTeX
+    -- if is_executable("chktex") then
+    --   lint.linters_by_ft.tex = { "chktex" }
+    -- end
     
     -- C/C++
     if is_executable("cppcheck") then
@@ -144,6 +144,7 @@ return {
           "typescript",
           "javascriptreact",
           "typescriptreact",
+          -- "tex" -- Disabled for LaTeX files
         }
         
         -- Check if auto-linting is disabled

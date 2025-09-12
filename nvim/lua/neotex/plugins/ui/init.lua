@@ -2,7 +2,7 @@
 -- UI Enhancement Plugins
 -- 
 -- This module loads plugins that enhance the UI experience:
--- - colorscheme.lua: Gruvbox theme configuration
+-- - colorscheme.lua: Catppuccin theme configuration
 -- - lualine.lua: Status line configuration
 -- - bufferline.lua: Buffer line configuration
 -- - nvim-tree.lua: File explorer configuration
