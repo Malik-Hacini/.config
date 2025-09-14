@@ -311,9 +311,41 @@ return {
   ),
 
 
+  sb(
+  { trig = "exer", name = "Environnement : Exercice" },
+  fmta(
+    [[
+  #exercice(title: "<>", n_stars:"<>")[
+  <>
+  ]
+  ]],
+    {
+      i(1, "Titre de l'exercice"),
+      i(2, "Nombre d'étoiles"),
+      i(2, "Contenu de l'exercice")
+    }
+  )
+  ),
+
+
+  sb(
+  { trig = "corr", name = "Environnement : Correction" },
+  fmta(
+    [[
+  #correction[
+  <>
+  ]
+  ]],
+    {
+      i(1, "Contenu de la correction")
+    }
+  )
+  ),
+
+
   -- -------------- MATH snippets ---------------
   -- Fractions
-  sm(
+  sb(
     { trig = "/", name = "Fraction Num", dscr = "Creates a fraction with selection as numerator." },
     fmt(
       [[
@@ -333,7 +365,7 @@ return {
     )
   ),
 
-  sm(
+  sb(
     { trig = "\\", name = "Fraction Den", dscr = "Creates a fraction with selection as denominator." },
     fmt([[({})/({}) {}]],
       {
@@ -358,88 +390,39 @@ return {
   -- Wraps/Surrounds
   postfixm({ trig = ".pr", name = "Wrap with ()" }, {l("( " .. l.POSTFIX_MATCH .. " )")} ),
 
-  sm({ trig = "lrp", name = "Left-Right ()" }, fmt([[lr(( {} )) {}]], { d(1, get_visual), i(0) }) ),
-  sm({ trig = "lrb", name = "Left-Right []" }, fmt([[lr([ {} ]) {}]], { d(1, get_visual), i(0) }) ),
-  sm({ trig = "lrc", name = "Left-Right {}" }, fmta([[lr({ <> }) <>]], { d(1, get_visual), i(0) }) ),
-  sm({ trig = "lra", name = "Left-Right <>" }, fmt([[lr(angle.l {} angle.r) {}]], { d(1, get_visual), i(0) }) ),
-  sm({ trig = "lr|", name = "Left-Right ||" }, fmt([[lr(abs( {} )) {}]], { d(1, get_visual), i(0) }) ),
+  sb({ trig = "lrp", name = "Left-Right ()" }, fmt([[lr(( {} )) {}]], { d(1, get_visual), i(0) }) ),
+  sb({ trig = "lrb", name = "Left-Right []" }, fmt([[lr([ {} ]) {}]], { d(1, get_visual), i(0) }) ),
+  sb({ trig = "lrc", name = "Left-Right {}" }, fmta([[lr({ <> }) <>]], { d(1, get_visual), i(0) }) ),
+  sb({ trig = "lra", name = "Left-Right <>" }, fmt([[lr(angle.l {} angle.r) {}]], { d(1, get_visual), i(0) }) ),
+  sb({ trig = "lr|", name = "Left-Right ||" }, fmt([[lr(abs( {} )) {}]], { d(1, get_visual), i(0) }) ),
 
-  sm({ trig = "mcal", name = "Calligraphic variant" }, fmt([[cal({}) {}]], { i(1, "L"), i(0) }) ),
+  sb({ trig = "mcal", name = "Calligraphic variant" }, fmt([[cal({}) {}]], { i(1, "L"), i(0) }) ),
 
   -- Decorators: Over and Under
-  sm({ trig = "conj", name = "Conjugate" }, fmt([[overline({}){}]], { d(1, get_visual), i(0) }) ),
-  sm({ trig = "bar", name = "Over: bar" }, fmt([[overline({}){}]], { d(1, get_visual), i(0) }) ),
+  sb({ trig = "conj", name = "Conjugate" }, fmt([[overline({}){}]], { d(1, get_visual), i(0) }) ),
+  sb({ trig = "bar", name = "Over: bar" }, fmt([[overline({}){}]], { d(1, get_visual), i(0) }) ),
 
-  -- Operators: Limits, Sums, Integrals, Product
-  sm({ trig = "lim", name = "Limit" }, fmt([[lim_({} -> {}) ]], { i(1, "n"), i(2, "infinity") }) ),
-
-  sm({ trig = "sum", name = "Summation (Sigma)" },
-    fmt(
-      [[
-      sum_(n={})^({}) {}
-      ]],
-      { i(1, "index"), i(2, "infinity"), d(3, get_visual) }
-    )
-  ),
-
-  -- sm({ trig = "taylor", name = "Taylor series" },
-  --   fmt(
-  --     [[
-  --       sum_({}={})^({}) {}_{} (x-a)^{} {}
-  --     ]],
-  --     { i(1, "k"), i(2, "0") , i(3, "infinity"), i(4, "c"), rep(1), rep(1), i(0) }
-  --   )
-  -- ),
-
-  sm({ trig = "iint", name = "Integral", priority = 300 },
-    fmt(
-      [[
-      integral_({})^({}) {} {}
-      ]],
-      { i(1, "-infinity"), i(2, "infinity"), d(3, get_visual), i(0) }
-    )
-  ),
-
-  sm({ trig = "prod", name = "Product (Pi)" },
-    fmt(
-      [[
-      product_({}={})^({}) {} {}
-      ]],
-      { i(1, "n"), i(2, "1"), i(3, "infinity"), d(4, get_visual), i(0) }
-    )
-  ),
-
-  sm({ trig = "case", name = "Cases, Piecewise" },
-    fmt(
-      [[
-      cases(
-          {}
-      ) {}
-      ]],
-      { i(1, "cases here"), i(0) }
-    )
-  ),
-
+  
   -- Derivatives
-  sm({ trig = "part", name = "Partial Derivative" }, fmt([[(diff {})/(diff {}) {}]], { i(1, "f"), i(2, "x"), i(0) }) ),
-  sm({ trig = "pdf", name = "Partial Derivative" }, fmt([[(diff {})/(diff {}) {}]], { i(1, "f"), i(2, "x"), i(0) }) ),
-  sm({ trig = "ddf", name = "Total Derivative" }, fmt([[(d {})/(d {}) {}]], { i(1, "f"), i(2, "x"), i(0) }) ),
-  sm({ trig = "la+", name = "Laplace {Transform}" }, fmta([[cal(L) lr({ <> }) <>]], { i(1), i(0) }) ),
-  sm({ trig = "lap", name = "Laplace (Transform)" }, fmta([[cal(L) lr(( <> )) <>]], { i(1), i(0) }) ),
+  sb({ trig = "part", name = "Partial Derivative" }, fmt([[(diff {})/(diff {}) {}]], { i(1, "f"), i(2, "x"), i(0) }) ),
+  sb({ trig = "pdf", name = "Partial Derivative" }, fmt([[(diff {})/(diff {}) {}]], { i(1, "f"), i(2, "x"), i(0) }) ),
+  sb({ trig = "ddf", name = "Total Derivative" }, fmt([[(d {})/(d {}) {}]], { i(1, "f"), i(2, "x"), i(0) }) ),
+  sb({ trig = "la+", name = "Laplace {Transform}" }, fmta([[cal(L) lr({ <> }) <>]], { i(1), i(0) }) ),
+  sb({ trig = "lap", name = "Laplace (Transform)" }, fmta([[cal(L) lr(( <> )) <>]], { i(1), i(0) }) ),
   
   -- vectors
-  sm({ trig = "cvec", name = "Column Vector" }, fmt([[vec({}_{}, dots.v, {}_{})]], { i(1, "x"), i(2, "1"), rep(1), i(3, "n") }) ),  
+  sb({ trig = "cvec", name = "Column Vector" }, fmt([[vec({}_{}, dots.v, {}_{})]], { i(1, "x"), i(2, "1"), rep(1), i(3, "n") }) ),  
 
   -- Symbols
-  sm({ trig = "del", name = "Nabla" }, { t("nabla ") } ),
+  sb({ trig = "del", name = "Nabla" }, { t("nabla ") } ),
 
   -- Sets
-  sm({ trig = "notin", name = "Not In" }, { t("in.not ") } ),
-  sm({ trig = "OO", name = "Empty Set" }, { t("emptyset ") } ),
+  sb({ trig = "notin", name = "Not In" }, { t("in.not ") } ),
+  sb({ trig = "OO", name = "Empty Set" }, { t("emptyset ") } ),
 
   -- Miscellaneous
-  sm({ trig = "...", name = "ldots", priority = 100 }, { t("#sym.dots.h") } ),
-  sm({ trig = "tt", name = "Text" }, fmt([["{}" {}]], { i(1, "text here"), i(0) }) ),
+  sb({ trig = "...", name = "ldots", priority = 100 }, { t("#sym.dots.h") } ),
+  sb({ trig = "tt", name = "Text" }, fmt([["{}" {}]], { i(1, "text here"), i(0) }) ),
 
 -- ----------------------------------------------------------------------------
 
@@ -476,6 +459,57 @@ return {
   ),
 
   -- -------------- MATH snippets ---------------
+  -- Operators: Limits, Sums, Integrals, Product
+  s({ trig = "lim", name = "Limit" }, fmt([[lim_({} -> {}) ]], { i(1, "n"), i(2, "+infinity") }) ),
+
+  s({ trig = "sum", name = "Summation (Sigma)" },
+    fmt(
+      [[
+      sum_({})^({}) {}
+      ]],
+      { i(1, "n=0"), i(2, "+infinity"), d(3, get_visual) }
+    )
+  ),
+
+  -- sm({ trig = "taylor", name = "Taylor series" },
+  --   fmt(
+  --     [[
+  --       sum_({}={})^({}) {}_{} (x-a)^{} {}
+  --     ]],
+  --     { i(1, "k"), i(2, "0") , i(3, "infinity"), i(4, "c"), rep(1), rep(1), i(0) }
+  --   )
+  -- ),
+
+  s({ trig = "iint", name = "Integral", priority = 300 },
+    fmt(
+      [[
+      integral_({})^({}) {} {}
+      ]],
+      { i(1, "-infinity"), i(2, "+infinity"), d(3, get_visual), i(0) }
+    )
+  ),
+
+  s({ trig = "prod", name = "Product (Pi)" },
+    fmt(
+      [[
+      product_({}={})^({}) {} {}
+      ]],
+      { i(1, "n"), i(2, "1"), i(3, "infinity"), d(4, get_visual), i(0) }
+    )
+  ),
+
+  s({ trig = "case", name = "Cases, Piecewise" },
+    fmt(
+      [[
+      cases(
+          {}
+      ) {}
+      ]],
+      { i(1, "cases here"), i(0) }
+    )
+  ),
+
+
   -- Subscripts
   sm(
     { trig = "(%a)(%d)", regTrig = true, name = "Auto-subscript 1D", dscr = "Auto-subscript with 1 digit" },

@@ -8,7 +8,7 @@ return {
         -- enable syntax highlighting
         highlight = {
           enable = true,
-          disable = { "css", "cls", "latex" }, -- list of language that will be disabled
+          disable = { "css", "cls", "latex", "typst" }, -- list of language that will be disabled
           -- Note: we keep markdown parser enabled for lectic.markdown files
           -- Note: using vim's regex highlighting for latex instead of treesitter
           additional_vim_regex_highlighting = { "python" }, -- for jupyter notebooks
