@@ -32,6 +32,4 @@ zoxide init fish --cmd cd | source
 end
 
 # runs neofetch if installed
-if type -q neofetch
-    neofetch --config /home/tag/.config/neofetch/config.conf
-end
+

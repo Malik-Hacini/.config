@@ -12,6 +12,17 @@ return{
       -- if you want to force a path: dependencies_bin = { tinymist = data .. '/mason/bin/tinymist' }
       
       open_cmd = "qutebrowser %s",
+      get_root = function(path_of_main_file)
+      -- Search upward for typst.toml or .git
+      local root = vim.fs.find({'typst.toml', '.git'}, { path = path_of_main_file, upward = true })[1]
+      if root then
+        return vim.fs.dirname(root)
+      end
+      -- Fallback to current working directory
+      return vim.fn.getcwd()
+    end,
+
+
       invert_colors = 'never',
       dependencies_bin = {
         ['tinymist'] = mason_tinymist,   -- 'tinymist' if in PATH, or nil to allow plugin downloads

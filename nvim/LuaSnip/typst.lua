@@ -315,14 +315,14 @@ return {
   { trig = "exer", name = "Environnement : Exercice" },
   fmta(
     [[
-  #exercice(title: "<>", n_stars:"<>")[
+  #exercice(title: "<>", n_stars:<>)[
   <>
   ]
   ]],
     {
       i(1, "Titre de l'exercice"),
       i(2, "Nombre d'étoiles"),
-      i(2, "Contenu de l'exercice")
+      i(3, "Contenu de l'exercice")
     }
   )
   ),
