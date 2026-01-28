@@ -9,7 +9,7 @@ return{
     local mason_tinymist = vim.fn.executable('tinymist') == 1 and 'tinymist' or nil
 
     require('typst-preview').setup({
-      -- if you want to force a path: dependencies_bin = { tinymist = data .. '/mason/bin/tinymist' }
+      ependencies_bin = { tinymist = data .. '/mason/bin/tinymist' }, 
       
       open_cmd = "qutebrowser %s",
       get_root = function(path_of_main_file)
